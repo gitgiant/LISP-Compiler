@@ -1,0 +1,52 @@
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task4
+$ ./l8t4build.sh
+lex.yy.c: In function ‘yy_init_buffer’:
+lex.yy.c:1411:48: warning: implicit declaration of function ‘fileno’ [-Wimplicit-function-declaration]
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
+                                                ^
+
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task4
+$ ./l8t4
+> (neg 1)
+-1.000000
+> (abs -1)
+1.000000
+> (exp 1)
+2.718282
+> (exp 2)
+7.389056
+> (sqrt 4)
+2.000000
+> (add 1 2)
+3.000000
+> (sub 4 5)
+-1.000000
+> (mult 3 4)
+12.000000
+> (div 12 3)
+4.000000
+> (div 12 0)
+Cannot divide by zero.
+0.000000
+> (remainder 21 5)
+1.000000
+> (remainder 21 0)
+Cannot divide by zero.
+0.000000
+> (log 2 4)
+2.000000
+> (log 10 100)
+2.000000
+> (pow 2 4)
+16.000000
+> (max 3.5)
+4.000000
+> (min 3.5)
+3.000000
+> (exp2 4)
+16.000000
+> (cbrt 8)
+2.000000
+> (hypot 3 4)
+5.000000
+> quit

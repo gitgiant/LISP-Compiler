@@ -1,0 +1,162 @@
+//this is just an output with the diagnostic messages turned on, so you can see whats going on.
+//the main typescript will have the diagnostic messages turned off
+
+
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task5                             
+$ ./l8t5build.sh                                                         
+lex.yy.c: In function ‘yy_init_buffer’:                                  
+lex.yy.c:1428:48: warning: implicit declaration of function ‘fileno’ [-Wi
+mplicit-function-declaration]                                            
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0; 
+                                                ^                        
+                                                                         
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task5                             
+$ ./l8t5                                                                 
+> ((let (a 1)) (sub 3 1))                                                
+Created scope with node: <a>                                             
+***Traversing symbol table***                                            
+Node: <a>                                                                
+Program output:                                                          
+2.000000                                                                 
+                                                                         
+> ((let (a 1)(b 2)(c 3)(d 4)(e 5)) (add 4 5))                            
+Created scope with node: <e>                                             
+***Traversing symbol table***                                            
+Node: <e>                                                                
+Node: <d>                                                                
+Node: <c>                                                                
+Node: <b>                                                                
+Node: <a>                                                                
+Program output:                                                          
+9.000000                                                                 
+                                                                         
+> (add ((let (abc 1)) (sub -3 abc)) 4)                                   
+Created symbol name: <abc>                                               
+Created scope with node: <abc>                                           
+***Traversing symbol table***                                            
+Node: <abc>                                                              
+Node: <e>                                                                
+Node: <d>                                                                
+Node: <c>                                                                
+Node: <b>                                                                
+Node: <a>                                                                
+Program output:                                                          
+Performing Symbol Lookup on <abc>, parent: <sub>                         
+Searching in scope <abc>                                                 
+Searching in scope <e>                                                   
+Searching in scope <d>                                                   
+Searching in scope <c>                                                   
+Searching in scope <b>                                                   
+Searching in scope <a>                                                   
+Found symbol with name: <abc> value: <1.000000>                          
+0.000000                                                                 
+Created symbol name: <a>                                                 
+Created symbol name: <b>)) (add a b)) (sqrt 2))                          
+Created scope with node: <b>                                             
+***Traversing symbol table***                                            
+Node: <b>                                                                
+Node: <a>                                                                
+lex: invalid character                                                   
+lex: invalid character                                                   
+syntax error                                                             
+error                                                                    
+error                                                                    
+lex: invalid character                                                   
+lex: invalid character                                                   
+error                                                                    
+Program output:                                                          
+0.000000                                                                 
+                                                                         
+> (mult ((let (a 1) (b 2)) (add a b)) (sqrt 2))                          
+Created symbol name: <a>                                                 
+Created symbol name: <b>                                                 
+Created scope with node: <b>                                             
+***Traversing symbol table***                                            
+Node: <b>                                                                
+Node: <a>                                                                
+Program output:                                                          
+Performing Symbol Lookup on <a>, parent: <add>                           
+Searching in scope <b>                                                   
+Searching in scope <a>                                                   
+Found symbol with name: <a> value: <1.000000>                            
+Performing Symbol Lookup on <b>, parent: <add>                           
+Searching in scope <b>                                                   
+Searching in scope <a>                                                   
+Found symbol with name: <b> value: <2.000000>                            
+4.242641                                                                 
+                                                                                                       
+> (add ((let (a ((let (b 2)) (mult b (sqrt 10))))) (div a 2)) ((let (c 5)
+) (sqrt c)))                                                             
+Created symbol name: <b>                                                 
+Created scope with node: <b>                                             
+***Traversing symbol table***                                            
+Node: <b>                                                                
+Created symbol name: <a>                                                 
+Created scope with node: <a>                                             
+***Traversing symbol table***                                            
+Node: <a>                                                                
+Created symbol name: <c>                                                 
+Created scope with node: <c>                                             
+***Traversing symbol table***                                            
+Node: <c>                                                                
+Program output:                                                          
+Performing Symbol Lookup on <a>, parent: <div>                           
+Searching in scope <a>                                                   
+Performing Symbol Lookup on <b>, parent: <mult>                          
+Searching in scope <b>                                                   
+Found symbol with name: <b> value: <2.000000>                            
+Found symbol with name: <a> value: <6.324555>                            
+Performing Symbol Lookup on <b>, parent: <mult>                          
+Searching in scope <b>                                                   
+Found symbol with name: <b> value: <2.000000>                            
+Performing Symbol Lookup on <c>, parent: <sqrt>                          
+Searching in scope <c>                                                   
+Found symbol with name: <c> value: <5.000000>                            
+5.398346                                                                 
+                                                                         
+> ((let (first (sub 5 1)) (second 2)) (add (pow 2 first) (sqrt second))) 
+Created symbol name: <first>                                             
+Created symbol name: <second>                                            
+Created scope with node: <second>                                        
+***Traversing symbol table***                                            
+Node: <second>                                                           
+Node: <first>                                                            
+Program output:                                                          
+Performing Symbol Lookup on <first>, parent: <pow>                       
+Searching in scope <second>                                              
+Searching in scope <first>                                               
+Found symbol with name: <first> value: <4.000000>                        
+Performing Symbol Lookup on <second>, parent: <sqrt>                     
+Searching in scope <second>                                              
+Searching in scope <first>                                               
+Found symbol with name: <second> value: <2.000000>                       
+17.414214                                                                
+                                                                         
+> (add ((let (a ((let (b 2)) (mult b (sqrt 10))))) (div a 2)) ((let (c 5)
+) (sqrt c)))                                                             
+Created symbol name: <b>                                                 
+Created scope with node: <b>                                             
+***Traversing symbol table***                                            
+Node: <b>                                                                
+Created symbol name: <a>                                                 
+Created scope with node: <a>                                             
+***Traversing symbol table***                                            
+Node: <a>                                                                
+Created symbol name: <c>                                                 
+Created scope with node: <c>                                             
+***Traversing symbol table***                                            
+Node: <c>                                                                
+Program output:                                                          
+Performing Symbol Lookup on <a>, parent: <div>                           
+Searching in scope <a>                                                   
+Performing Symbol Lookup on <b>, parent: <mult>                          
+Searching in scope <b>                                                   
+Found symbol with name: <b> value: <2.000000>                            
+Found symbol with name: <a> value: <6.324555>                            
+Performing Symbol Lookup on <b>, parent: <mult>                          
+Searching in scope <b>                                                   
+Found symbol with name: <b> value: <2.000000>                            
+Performing Symbol Lookup on <c>, parent: <sqrt>                          
+Searching in scope <c>                                                   
+Found symbol with name: <c> value: <5.000000>                            
+5.398346                                                                 

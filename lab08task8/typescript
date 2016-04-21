@@ -1,0 +1,36 @@
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task8                                                   
+$ ./l8t8build.sh                                                                               
+lex.yy.c: In function ‘yy_init_buffer’:                                                        
+lex.yy.c:1461:48: warning: implicit declaration of function ‘fileno’ [-Wimplicit-function-decla
+ration]                                                                                        
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;                       
+                                                ^                                              
+                                                                                               
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task8                                                   
+$ ./l8t8                                                                                       
+>  ((let (real myA 4.0))(cond (smaller myA 5)(print myA)(print 5)))                            
+4                                                                                              
+                                                                                               
+>  ((let (integer myA 5.0))(cond (larger myA 3)(print myA)(print 5)))                          
+5                                                                                              
+                                                                                               
+> ((let (integer myA 5.0))(cond (equal myA 5)(print myA)(print 999)))                          
+5                                                                                              
+                                                                                               
+> ((let (integer myA 4.0))(cond (equal myA 5)(print myA)(print 999)))                          
+999                                                                                            
+                                                                                               
+> (cond (smaller 3 4)(print 3)(print 4))                                                       
+3                                                                                              
+                                                                                               
+> (cond (larger 3 4)(print 3)(print 4))                                                        
+4                                                                                              
+                                                                                               
+> (cond 1(print1)(print 0))                                                                    
+1                                                                                              
+                                                                                               
+> (cond 0(print1)(print 0))                                                                    
+0                                                                                              
+                                                                                               
+> quit                                                                                         
+                                                                                               

@@ -1,0 +1,35 @@
+every AST node should have a scope of type NODE with a list of symbol
+root of any expression is the outer scope of expression
+dont need node for let
+let keyword to find pairs and build symbol table (linked list of symbols)
+
+symbol AST_NODE in context of s_expr
+symbol as let_list conext (let_list let_elem->SYMBOL_TABLE_NODE) 
+in symbol table always point to symbol in front
+
+((let (a 1)) (sub 3 1))
+
+((let (a 1)) (sub a 3))
+
+((let (a 1)(b 2)(c 3)(d 4)(e 5)) (add 4 5))
+
+((let (a 5)(b 3)(c 3)(b 5)) (add a b))
+
+((let (a 5)(b 3)(c 3)(b 5)) (add a e))
+
+((let (a 5)(b 3)) (add b a))
+
+((let (a 1)(b 2)(a 3)) (add 4 5))
+
+((let (e 5)(f 3)(g 3)) (add e f))
+
+
+tests:
+
+(add ((let (abc 1)) (sub -3 abc)) 4)
+
+(mult ((let (a 1) (b 2)) (add a b)) (sqrt 2))
+
+(add ((let (a ((let (b 2)) (mult b (sqrt 10))))) (div a 2)) ((let (c 5)) (sqrt c)))
+
+((let (first (sub 5 1)) (second 2)) (add (pow 2 first) (sqrt second)))

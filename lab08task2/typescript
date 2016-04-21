@@ -1,0 +1,26 @@
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task2
+$ ./l8t2build.sh
+lex.yy.c: In function ‘yy_init_buffer’:
+lex.yy.c:1411:48: warning: implicit declaration of function ‘fileno’ [-Wimplicit-function-declaration]
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
+                                                ^
+
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task2
+$ ./l8t2
+> (exp2 4)
+16.000000
+> (cbrt 8)
+2.000000
+> (cbrt -4)
+Ya cant find the cube root of a negative number.0.000000
+> (hypot 12 13)
+17.691806
+> (hypot 4 5)
+6.403124
+> (hypot 3 4)
+5.000000
+> (log 2 8)
+3.000000
+> (log 10 100)
+2.000000
+> quit

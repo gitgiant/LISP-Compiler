@@ -1,0 +1,42 @@
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task9
+$ ./l8t9build.sh
+lex.yy.c: In function ‘yy_init_buffer’:
+lex.yy.c:1467:48: warning: implicit declaration of function ‘fileno’ [-Wimplicit-function-declaration]
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
+                                                ^
+
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task9
+$ ./l8t9
+> ((let (real a (rand))) (print a))
+147699711.00
+
+> ((let (real a (rand))) (print a))
+880268351.00
+
+> ((let (real a (rand))) (print a))
+1889772843.00
+
+> ((let (real a (rand))) (print a))
+686078705.00
+
+> ((let (integer a (read))) (print a))
+Please enter a number:
+3
+
+3
+> ((let (integer a (read)) (integer b (read))) (print (add a b)))
+Please enter a number:
+3
+
+Please enter a number:
+4
+
+7
+> ((let (integer a (read)) (integer b (read))) (print (add a b)))
+Please enter a number:
+20
+
+Please enter a number:
+30
+
+50

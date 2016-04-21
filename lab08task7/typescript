@@ -1,0 +1,10 @@
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task7                                        
+$ ./l8t7                                                                                                                                 
+> ((let (real a 5.0)(integer b 6.0))(print b))                                      
+6                                                                                   
+                                                                                    
+> (print 5)                                                                         
+5                                                                                   
+                                                                                                                                                               
+> ((let (real a 5.1))(print a))                                                     
+5.10                                                                                

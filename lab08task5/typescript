@@ -1,0 +1,36 @@
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task5
+$ ./l8t5build.sh
+lex.yy.c: In function ‘yy_init_buffer’:
+lex.yy.c:1428:48: warning: implicit declaration of function ‘fileno’ [-Wimplicit-function-declaration]
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
+                                                ^
+
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task5
+$ ./l8t5
+> ((let (a 1)) (sub a 3))
+-2.000000
+
+> ((let (a 5)(b 3)(c 3)(b 5)) (add a b))
+Warning: Redeclaration of symbol <b> detected, using later definition.
+10.000000
+
+> ((let (a 5)(b 3)(c 3)(b 5)) (add a e))
+Warning: Redeclaration of symbol <b> detected, using later definition.
+Compilation Error: Symbol <e> not found
+
+> (add ((let (abc 1)) (sub -3 abc)) 4)
+0.000000
+
+> (mult ((let (a 1) (b 2)) (add a b)) (sqrt 2))
+4.242641
+
+> (add ((let (a ((let (b 2)) (mult b (sqrt 10))))) (div a 2)) ((let (c 5)) (sqrt c)))
+5.398346
+
+> ((let (first (sub 5 1)) (second 2)) (add (pow 2 first) (sqrt second))) 
+17.414214
+
+> ((let (a ((let (c 3) (d 4)) (mult c d)))) (sqrt a))
+3.464102
+
+> quit

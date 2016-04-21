@@ -1,0 +1,78 @@
+every AST node should have a scope of type NODE with a list of symbol
+root of any expression is the outer scope of expression
+dont need node for let
+let keyword to find pairs and build symbol table (linked list of symbols)
+
+symbol AST_NODE in context of s_expr
+symbol as let_list conext (let_list let_elem->SYMBOL_TABLE_NODE) 
+in symbol table always point to symbol in front
+
+clean up task 10 and just submit it for other tasks? or turn in prototypes?
+
+
+((let (integer a 1.5)) (sub a 3))
+
+((let (real a 1)) (sub a 3))
+
+((let (real a 2)) (sqrt a))
+
+((let (real a 1)(integer b 2)(real c 3)(integer d 4)(real e 5)) (add a e))
+
+((let (c 5)(((let (a 1)) (sub a 3))) (add b a)))
+
+tests:
+((let (real a 1)(real a 2)) (sub a 3))
+
+//0
+(add ((let (integer abc 1)) (sub -3 abc)) 4)
+
+((let (integer myA 3)) ((let (myA 5) (real myB 1.5)) (add myA myB)))
+
+//4.2426406871192851464050661726291
+(mult ((let (integer a 1) (integer b 2)) (add a b)) (sqrt 2)) 
+
+ //4.2426406871192851464050661726291
+ (mult ((let (real a 1) (real b 2)) (add a b)) (sqrt 2))
+
+
+(add ((let (a ((let (b 2)) (mult b (sqrt 10))))) (div a 2)) ((let (c 5)) (sqrt c)))
+
+//3 + 2 = 5
+(add ((let (integer a ((let (integer b 2)) (mult b (sqrt 10))))) (div a 2)) ((let (integer c 5)) (sqrt c)))
+
+//5.398345637668169028408067213164
+(add ((let (real a ((let (real b 2)) (mult b (sqrt 10))))) (div a 2)) ((let (real c 5)) (sqrt c)))
+
+((let (real first (sub 5 1)) (real second 2)) (add (pow 2 first) (sqrt second)))
+
+(print 5)
+
+((let (integer a 5.1))(print a))
+
+((let (real a 5.0)(integer b 6.1))(print b))
+
+((let (integer a 5.5)(integer b 6.4))(print a)(print b))
+
+((let (real myA 4.0)(integer myB 1))(cond (smaller myA myB)(print myA)(print myB)))
+((let (real myA 4.0))(cond (smaller myA 5)(print myA)(print 5)))
+(cond (smaller 3 4)(print 3)(print 4))
+
+(cond (larger 3 4)(print 3)(print 4))
+(cond 1(print1)(print 0))
+(cond 0(print1)(print 0))
+
+/22
+((let (myFunc (x y) (mult (add x 5) (sub y 2)))) (sub (myFunc 3 5) 2))
+
+//9-7 = 2
+((let (myFunc (x y z) (add (add x z) (add y z)))) (sub (myFunc 1 2 3) (myFunc 3 2 1)))
+
+
+((let (myPow () (pow 2.0 10.0))) (add (myPow) 3))
+
+((let (myPow (pow 2.0 10.0))) (add myPow 3))
+
+((let (real myPow (pow 2.0 10.0))) (add myPow 3))
+
+if(tempFunc->data.symbolTable.symbolValue->scope->data.symbolTable.symbolName != NULL)
+

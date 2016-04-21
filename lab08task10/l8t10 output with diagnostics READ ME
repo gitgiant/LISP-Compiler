@@ -1,0 +1,92 @@
+//this is the output of task 10 with diagnostic messages on
+//it clearly shows that the functions are being created, they are being found in the scope, the actual parameters are being passed into the formal parameters, and the function is being evaluated.
+
+
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task10                                               
+$ ./l8t10build.sh                                                                           
+l8t10.y: warning: 7 shift/reduce conflicts [-Wconflicts-sr]                                 
+l8t10.y: warning: 1 reduce/reduce conflict [-Wconflicts-rr]                                 
+lex.yy.c: In function ‘yy_init_buffer’:                                                     
+lex.yy.c:1467:48: warning: implicit declaration of function ‘fileno’ [-Wimplicit-function-de
+ration]                                                                                     
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;                    
+                                                ^                                           
+                                                                                            
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task10                                               
+$ ./l8t10                                                                                   
+> ((let (myFunc (x y z) (add (add x z) (add y z)))) (sub (myFunc 1 2 3) (myFunc 3 2 1)))    
+create Arg List <z>                                                                         
+create Arg List <y>                                                                         
+create Arg List <x>                                                                         
+Created custom function with name: <myFunc>, arg_list: <z><y>, and s_expr: <add>            
+Creating Function Node <myFunc> s_expr <3.000000><2.000000>                                 
+Creating Function Node <myFunc> s_expr <1.000000><2.000000>                                 
+Created scope with node: <myFunc>, s_expr head: <sub>                                       
+Passing into formal parameter: <z> actual parameter value: <3.000000>                       
+set formal parameter <z> value: <3.000000>                                                  
+Passing into formal parameter: <y> actual parameter value: <2.000000>                       
+set formal parameter <y> value: <2.000000>                                                  
+Passing into formal parameter: <x> actual parameter value: <1.000000>                       
+set formal parameter <x> value: <1.000000>                                                  
+Evaluating Function                                                                         
+Performing Symbol Lookup on <x>, parent type: <1>, parent name<add>                         
+Performing Symbol Lookup on <z>, parent type: <1>, parent name<add>                         
+Performing Symbol Lookup on <y>, parent type: <1>, parent name<add>                         
+Performing Symbol Lookup on <z>, parent type: <1>, parent name<add>                         
+Passing into formal parameter: <z> actual parameter value: <1.000000>                       
+set formal parameter <z> value: <1.000000>                                                  
+Passing into formal parameter: <y> actual parameter value: <2.000000>                       
+set formal parameter <y> value: <2.000000>                                                  
+Passing into formal parameter: <x> actual parameter value: <3.000000>                       
+set formal parameter <x> value: <3.000000>                                                  
+Evaluating Function                                                                         
+Performing Symbol Lookup on <x>, parent type: <1>, parent name<add>                         
+Performing Symbol Lookup on <z>, parent type: <1>, parent name<add>                         
+Performing Symbol Lookup on <y>, parent type: <1>, parent name<add>                         
+Performing Symbol Lookup on <z>, parent type: <1>, parent name<add>                         
+Passing into formal parameter: <z> actual parameter value: <3.000000>                       
+set formal parameter <z> value: <3.000000>                                                  
+Passing into formal parameter: <y> actual parameter value: <2.000000>                       
+set formal parameter <y> value: <2.000000>                                                  
+Passing into formal parameter: <x> actual parameter value: <1.000000>                       
+set formal parameter <x> value: <1.000000>                                                  
+Evaluating Function                                                                         
+Performing Symbol Lookup on <x>, parent type: <1>, parent name<add>                         
+Performing Symbol Lookup on <z>, parent type: <1>, parent name<add>                         
+Performing Symbol Lookup on <y>, parent type: <1>, parent name<add>                         
+Performing Symbol Lookup on <z>, parent type: <1>, parent name<add>                         
+Passing into formal parameter: <z> actual parameter value: <1.000000>                       
+set formal parameter <z> value: <1.000000>                                                  
+Passing into formal parameter: <y> actual parameter value: <2.000000>                       
+set formal parameter <y> value: <2.000000>                                                  
+Passing into formal parameter: <x> actual parameter value: <3.000000>                       
+set formal parameter <x> value: <3.000000>                                                  
+Evaluating Function                                                                         
+Performing Symbol Lookup on <x>, parent type: <1>, parent name<add>                         
+Performing Symbol Lookup on <z>, parent type: <1>, parent name<add>                         
+Performing Symbol Lookup on <y>, parent type: <1>, parent name<add>                         
+Performing Symbol Lookup on <z>, parent type: <1>, parent name<add>                         
+Integer value: 2                                                                            
+                                                                                            
+> ((let (myFunc (x y) (mult (add x 5) (sub y 2)))) (sub (myFunc 3 5) 2))                    
+create Arg List <y>                                                                         
+create Arg List <x>                                                                         
+Created custom function with name: <myFunc>, arg_list: <y><x>, and s_expr: <mult>           
+Creating Function Node <myFunc> s_expr <5.000000><3.000000>                                 
+Created scope with node: <myFunc>, s_expr head: <sub>                                       
+Passing into formal parameter: <y> actual parameter value: <5.000000>                       
+set formal parameter <y> value: <5.000000>                                                  
+Passing into formal parameter: <x> actual parameter value: <3.000000>                       
+set formal parameter <x> value: <3.000000>                                                  
+Evaluating Function                                                                         
+Performing Symbol Lookup on <x>, parent type: <1>, parent name<add>                         
+Performing Symbol Lookup on <y>, parent type: <1>, parent name<sub>                         
+Passing into formal parameter: <y> actual parameter value: <5.000000>                       
+set formal parameter <y> value: <5.000000>                                                  
+Passing into formal parameter: <x> actual parameter value: <3.000000>                       
+set formal parameter <x> value: <3.000000>                                                  
+Evaluating Function                                                                         
+Performing Symbol Lookup on <x>, parent type: <1>, parent name<add>                         
+Performing Symbol Lookup on <y>, parent type: <1>, parent name<sub>                         
+Integer value: 22                                                                           
+                                                                                            

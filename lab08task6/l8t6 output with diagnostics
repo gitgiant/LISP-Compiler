@@ -1,0 +1,28 @@
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task6                             
+$ ./l8t6build.sh                                                         
+lex.yy.c: In function ‘yy_init_buffer’:                                  
+lex.yy.c:1449:48: warning: implicit declaration of function ‘fileno’ [-Wi
+mplicit-function-declaration]                                            
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0; 
+                                                ^                        
+                                                                         
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task6                             
+$ ./l8t6                                                                 
+> ((let (integer myA 3)) ((let (myA 5) (real myB 1.5)) (add myA myB)))   
+Created letElem with name <myA>, type <integer>, and s_expr<3.000000>    
+Created letElem with name <myA>, type <(null)>, and s_expr<5.000000>     
+Created letElem with name <myB>, type <real>, and s_expr<1.500000>       
+Created symbol name: <myA>                                               
+Created symbol name: <myB>                                               
+Created scope with node: <myB>, s_expr head: <add>                       
+Created scope with node: <myA>, s_expr head: <add>                       
+Program output:                                                          
+Performing Symbol Lookup on <myA>, parent type: <1>                      
+Found symbol with name: <myA> value: <5.000000> type = NULL searching for
+ inherited type                                                          
+Performing Symbol Lookup on <myA>, parent type: <3>                      
+Found symbol with name: <myA> value: <3.000000> type <integer>           
+Performing Symbol Lookup on <myB>, parent type: <1>                      
+Found symbol with name: <myB> value: <1.500000> type <real>              
+6.500000                                                                 
+> quit                                                                   

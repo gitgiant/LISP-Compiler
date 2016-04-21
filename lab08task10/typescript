@@ -1,0 +1,22 @@
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task10
+$ ./l8t10build.sh
+l8t10.y: warning: 7 shift/reduce conflicts [-Wconflicts-sr]
+l8t10.y: warning: 1 reduce/reduce conflict [-Wconflicts-rr]
+lex.yy.c: In function ‘yy_init_buffer’:
+lex.yy.c:1467:48: warning: implicit declaration of function ‘fileno’ [-Wimplicit-function-declaration]
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
+                                                ^
+
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task10
+$ ./l8t10
+> ((let (myFunc (x y) (mult (add x 5) (sub y 2)))) (sub (myFunc 3 5) 2))
+22
+
+> ((let (myFunc (x y z) (add (add x z) (add y z)))) (sub (myFunc 1 2 3) (myFunc 3 2 1)))
+2
+
+> ((let (myPow () (pow 2.0 10.0))) (add (myPow) 3))
+1027
+
+> ((let (real myPow (pow 2.0 10.0))) (add myPow 3))
+1027

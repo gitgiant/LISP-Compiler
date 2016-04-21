@@ -1,0 +1,44 @@
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task1
+$ ./l8t1
+> (neg 1)
+-1.000000
+> (abs -1)
+1.000000
+> (exp 1)
+2.718282
+> (sqrt 2)
+1.414214
+> (add 1 2)
+3.000000
+> (sub 1 3)
+-2.000000
+> (mult 3 4)
+12.000000
+> (div 20 5)
+4.000000
+> (div 4 0)
+Ya cant divide by zero.
+0.000000
+> (remainder 21 5)
+1.000000
+> (remainder 20 0)
+Ya cant divide by zero.
+0.000000
+> (log 4)
+Please enter a log base of either 2 or 10
+1.000000
+> (log 2 4)
+2.000000
+> (log 10 100)
+2.000000
+> (log 10 0)
+-inf
+> (pow 4)
+1.000000
+> (pow 4 2)
+16.000000
+> (max 4.5)
+5.000000
+> (min 4.5)
+4.000000
+> quit

@@ -1,0 +1,47 @@
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task6                         
+$ ./l8t6build.sh                                                     
+lex.yy.c: In function ‘yy_init_buffer’:                              
+lex.yy.c:1449:48: warning: implicit declaration of function ‘fileno’ 
+[-Wimplicit-function-declaration]                                    
+         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;                                                                  
+                                                ^                    
+                                                                     
+Giant@DESKTOP-GFGH7QE /cygdrive/c/lab08task6                         
+$ ./l8t6                                                             
+> ((let (real a 1)(integer b 2)(real c 3)(integer d 4)(real e 5.3)) (add a e))                                                            
+6.300000                                                             
+
+> ((let (real a 1)(integer b 2)(real c 3)(integer d 4)(real e 5.3)) (add a f))
+Compilation Error: Symbol <f> not found
+
+$ ./l8t6
+
+> ((let (real a 1)(integer b 2)(real c 3)(integer d 4)(real a 5.3)) (add a d))
+ERROR: redeclaration of variable <a> attempted
+
+$ ./l8t6
+> ((let (integer a 1.4)) (add a 1))
+2
+
+>  ((let (integer a 1.5)) (add a 1))
+3
+                                                                     
+> (add ((let (integer abc 1)) (sub -3 abc)) 4)                       
+0                                                                    
+                                                                     
+> ((let (integer myA 3)) ((let (myA 5) (real myB 1.5)) (add myA myB)))                                                                    
+6.500000                                                             
+                                                                     
+> ((let (integer myA 3)) ((let (myA 5) (integer myB 1.5)) (add myA myB)))                                                                 
+7                                                                    
+                                                                     
+>  (mult ((let (real a 1) (real b 2)) (add a b)) (sqrt 2))           
+4.242641                                                             
+                                                                     
+> (add ((let (real a ((let (real b 2)) (mult b (sqrt 10))))) (div a 2)) ((let (real c 5)) (sqrt c)))                                      
+5.398346                                                             
+                                                                                                   
+> ((let (real first (sub 5 1)) (real second 2)) (add (pow 2 first) (sqrt second)))                                                        
+17.414214                                                            
+                                                                     
+>                                                                    
